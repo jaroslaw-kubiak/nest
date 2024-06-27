@@ -23,6 +23,10 @@ export class UsersService {
     //return array of records by email
   }
 
+  adminFindOne(id: number) {
+    return this.repo.findOneBy({ id });
+  }
+
   async update(id: number, attrs: Partial<User>) {
     const user = await this.findOne(id);
     if (!user) {
