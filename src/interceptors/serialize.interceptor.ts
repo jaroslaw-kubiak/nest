@@ -22,12 +22,12 @@ export class SerializeInterceptor implements NestInterceptor {
   constructor(private dto: any) {}
   intercept(context: ExecutionContext, handler: CallHandler): Observable<any> {
     //run something before a request is handled by the request handler
-    console.log(`1 run before handler`, context);
+    // console.log(`1 run before handler`, context);
 
     return handler.handle().pipe(
       map((userEntity: any) => {
         //run something before the response is sent out
-        console.log(`3 run before response is sent out`, userEntity);
+        // console.log(`3 run before response is sent out`, userEntity);
 
         return plainToClass(this.dto, userEntity, {
           //excludeExtraneousValues: true will remove any properties that are not defined in the UserDto class
